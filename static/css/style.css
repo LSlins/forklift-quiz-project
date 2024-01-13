@@ -1,0 +1,87 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial,sans-serif;
+    height: 3000px;
+}
+p,h1 {
+    margin: 0 auto;
+}
+h1 {
+    display: inline-block;
+    vertical-align: middle;
+}
+.header-bar {
+    background: linear-gradient(to left top, rgb(30, 30, 214), rgb(236, 88, 88));
+    height: 60px;
+    padding: 0 10px;
+    /* margin: auto 10px; */
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+.image {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 50px;
+    height: 50px;
+    
+}
+.link {
+    color: white;
+    text-decoration: none;
+}
+.content p {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+.content ul li {
+    list-style: none;
+    padding-bottom: 5px;
+}
+input[type=text],input[type=password] {
+    border: 1px solid #EB796F;
+    border-radius: 5px;
+    padding: 10px;
+    width: 90%;
+    margin-bottom: 10px;
+}
+.container {
+    max-width: 550px;
+    border-radius: 5px;
+    margin: auto auto;
+    padding-bottom: 30px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.title {
+    background:linear-gradient(to left top, rgb(30, 30, 214), rgb(236, 88, 88));
+    color: white;
+    text-align: center;
+    height: 50px;
+    padding-top: 10px;
+
+}
+label {
+    padding-top: 10px !important;
+    display: block;
+}
+.button {
+    border: 1px solid #EB796F;
+    background-color: #FAFAFA;
+    color: #EB796F;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+.card-body {
+    padding: 20px;
+    background-color: white;
+}

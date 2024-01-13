@@ -1,0 +1,61 @@
+{% extends 'quiz/base.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+    <div class="header-bar">
+        <div class="image">
+            <img class="logo" src="{% static 'images/forklift.png' %}" alt="logo"> 
+            <h1><i>Forklift Quiz</i></h1>
+        </div>
+        <div class="registration">
+            {% if request.user.is_authenticated %}
+                <p>{{ request.user }}</p>
+                <a class="link" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="content">
+        {% if questions %}
+            <ul>
+                {% for question in questions %}
+                    <li class="question">Question {{ question.id }}: {{ question.question_text }}</li>
+                    <ul>
+                        {% for choice in question.choices.all %}
+                            <li>{{forloop.counter}}. {{ choice.choice_text }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                {% endfor %}
+            </ul>
+            
+            <!--show page-->
+            <div class="pagination">
+                <span class="step-links">
+                    <!--check previous page available in a paginated query -->
+                    {% if page.has_previous %}
+                        <!-- configure url by add "?page"-->
+                        <!-- page object have method page_obj.number, page_obj.previous_page_number, 
+                            page_obj.next_page_number, page_obj.paginator.num_pages-->
+                        <a class="button" href="?page=1">&laquo; first</a>
+                        <a  class="button" href="?page={{ page.previous_page_number }}">previous</a>
+                    {% endif %}
+                    <span class="button">{{ page.number }}</span>
+                    <!--check next page available in a paginated query -->
+                    {% if page.has_next %}
+                        <a class="button" href="?page={{ page.next_page_number }}">next</a>
+                        <a class="button" href="?page={{ page.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% else %}
+            <p>No questions available.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
